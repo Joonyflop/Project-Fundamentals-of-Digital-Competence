@@ -3,14 +3,18 @@
 
 using namespace std;
 
+// Member 2 - Genre Recommendation Module
+// Recommends music based on the user's genre and listening preferences
 void genreRecommendation() {
 
+    // Variables for storing user choices
     int menuChoice;
     int genreChoice;
     int soundChoice;
     int energyChoice;
     int styleChoice;
 
+    // Display genre recommendation menu
     cout << "\n====================================\n";
     cout << "          YOUTUBE MUSIC\n";
     cout << "       GENRE RECOMMENDATION\n";
@@ -24,21 +28,21 @@ void genreRecommendation() {
     cout << "\nEnter your choice: ";
     cin >> menuChoice;
 
-    // Validate menu choice
+    // Make sure the user selects a valid menu option
     while (menuChoice < 1 || menuChoice > 3) {
         cout << "Invalid choice. Please enter 1-3: ";
         cin >> menuChoice;
     }
 
     // ============================================
-    // FIND MY GENRE
+    // OPTION 1: FIND MY GENRE
     // ============================================
     if (menuChoice == 1) {
 
         cout << "\n------ FIND MY GENRE ------\n";
         cout << "Answer a few questions and we will find a genre for you!\n";
 
-        // Question 1
+        // Ask about the user's preferred sound
         cout << "\n- What kind of sound do you prefer?\n";
         cout << "1. Catchy and mainstream\n";
         cout << "2. Smooth and soulful\n";
@@ -49,12 +53,13 @@ void genreRecommendation() {
         cout << "\nEnter your choice (1-5): ";
         cin >> soundChoice;
 
+        // Validate sound preference
         while (soundChoice < 1 || soundChoice > 5) {
             cout << "Invalid choice. Please enter 1-5: ";
             cin >> soundChoice;
         }
 
-        // Question 2
+        // Ask about the user's preferred energy level
         cout << "\n- What energy level do you prefer?\n";
         cout << "1. Chill\n";
         cout << "2. Moderate\n";
@@ -63,12 +68,13 @@ void genreRecommendation() {
         cout << "\nEnter your choice (1-3): ";
         cin >> energyChoice;
 
+        // Validate energy preference
         while (energyChoice < 1 || energyChoice > 3) {
             cout << "Invalid choice. Please enter 1-3: ";
             cin >> energyChoice;
         }
 
-        // Question 3
+        // Ask whether the user prefers vocals, beats, or both
         cout << "\n- What do you enjoy more in music?\n";
         cout << "1. Vocals\n";
         cout << "2. Beats\n";
@@ -77,20 +83,23 @@ void genreRecommendation() {
         cout << "\nEnter your choice (1-3): ";
         cin >> styleChoice;
 
+        // Validate music style preference
         while (styleChoice < 1 || styleChoice > 3) {
             cout << "Invalid choice. Please enter 1-3: ";
             cin >> styleChoice;
         }
 
+        // Display personalized recommendation
         cout << "\n------------------------------------\n";
         cout << "          YOUR RESULT\n";
         cout << "------------------------------------\n";
 
-        // POP
+        // Sound choice 1 represents Pop
         if (soundChoice == 1) {
 
             cout << "Recommended Genre: Pop\n";
 
+            // Select a Pop mix based on energy and style preferences
             if (energyChoice == 1 && styleChoice == 1)
                 cout << "Recommended Mix: Acoustic Pop Mix\n";
 
@@ -106,17 +115,19 @@ void genreRecommendation() {
             else
                 cout << "Recommended Mix: Pop Hits Mix\n";
 
+            // Display example songs from the recommended genre
             cout << "\nSuggested Songs:\n";
             cout << "- Espresso - Sabrina Carpenter\n";
             cout << "- BIRDS OF A FEATHER - Billie Eilish\n";
             cout << "- Die With A Smile - Lady Gaga & Bruno Mars\n";
         }
 
-        // R&B
+        // Sound choice 2 represents R&B
         else if (soundChoice == 2) {
 
             cout << "Recommended Genre: R&B\n";
 
+            // Select an R&B mix based on energy and style preferences
             if (energyChoice == 1 && styleChoice == 1)
                 cout << "Recommended Mix: Smooth R&B Vocals\n";
 
@@ -135,11 +146,12 @@ void genreRecommendation() {
             cout << "- Leave The Door Open - Silk Sonic\n";
         }
 
-        // HIP-HOP
+        // Sound choice 3 represents Hip-Hop
         else if (soundChoice == 3) {
 
             cout << "Recommended Genre: Hip-Hop\n";
 
+            // Select a Hip-Hop mix based on energy and style preferences
             if (energyChoice == 1 && styleChoice == 2)
                 cout << "Recommended Mix: Lo-Fi Hip-Hop Beats\n";
 
@@ -158,11 +170,12 @@ void genreRecommendation() {
             cout << "- See You Again - Tyler, The Creator ft. Kali Uchis\n";
         }
 
-        // ROCK
+        // Sound choice 4 represents Rock
         else if (soundChoice == 4) {
 
             cout << "Recommended Genre: Rock\n";
 
+            // Select a Rock mix based on the preferred energy level
             if (energyChoice == 1)
                 cout << "Recommended Mix: Soft Rock Mix\n";
 
@@ -178,11 +191,12 @@ void genreRecommendation() {
             cout << "- The Pretender - Foo Fighters\n";
         }
 
-        // ELECTRONIC
+        // Sound choice 5 represents Electronic
         else if (soundChoice == 5) {
 
             cout << "Recommended Genre: Electronic\n";
 
+            // Select an Electronic mix based on energy and style preferences
             if (energyChoice == 1)
                 cout << "Recommended Mix: Chill Electronic\n";
 
@@ -202,7 +216,7 @@ void genreRecommendation() {
     }
 
     // ============================================
-    // BROWSE BY GENRE
+    // OPTION 2: BROWSE BY GENRE
     // ============================================
     else if (menuChoice == 2) {
 
@@ -218,6 +232,7 @@ void genreRecommendation() {
         cout << "\nEnter your choice (1-5): ";
         cin >> genreChoice;
 
+        // Make sure the selected genre is valid
         while (genreChoice < 1 || genreChoice > 5) {
             cout << "Invalid choice. Please enter 1-5: ";
             cin >> genreChoice;
@@ -225,6 +240,7 @@ void genreRecommendation() {
 
         cout << "\n------------------------------------\n";
 
+        // Display a predefined mix and songs for the selected genre
         switch (genreChoice) {
 
             case 1:
@@ -282,10 +298,11 @@ void genreRecommendation() {
     }
 
     // ============================================
-    // BACK TO MAIN MENU
+    // OPTION 3: RETURN TO MAIN MENU
     // ============================================
     else if (menuChoice == 3) {
 
+        // Return control to the main program
         cout << "\nReturning to main menu...\n";
     }
 }
