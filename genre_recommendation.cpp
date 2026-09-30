@@ -62,63 +62,75 @@ void genreRecommendation() {
     cout << "------------------------------------\n";
 
     if (soundChoice == 1) {
-        cout << "Recommended Genre: Pop\n";
 
-        if (energyChoice == 1)
-            cout << "Recommended Mix: Chill Pop Mix\n";
-        else if (energyChoice == 2)
-            cout << "Recommended Mix: Pop Hits Mix\n";
-        else
-            cout << "Recommended Mix: Upbeat Pop Mix\n";
-    }
+    cout << "Recommended Genre: Pop\n";
 
-    else if (soundChoice == 2) {
-        cout << "Recommended Genre: R&B\n";
+    if (energyChoice == 1 && styleChoice == 1)
+        cout << "Recommended Mix: Acoustic Pop Mix\n";
+    else if (energyChoice == 1 && styleChoice == 2)
+        cout << "Recommended Mix: Chill Pop Beats\n";
+    else if (energyChoice == 3 && styleChoice == 1)
+        cout << "Recommended Mix: Pop Vocal Hits\n";
+    else if (energyChoice == 3 && styleChoice == 2)
+        cout << "Recommended Mix: Dance Pop Mix\n";
+    else
+        cout << "Recommended Mix: Pop Hits Mix\n";
+}
 
-        if (energyChoice == 1)
-            cout << "Recommended Mix: Chill R&B Vibes\n";
-        else if (energyChoice == 2)
-            cout << "Recommended Mix: R&B Essentials\n";
-        else
-            cout << "Recommended Mix: Upbeat R&B Mix\n";
-    }
+else if (soundChoice == 2) {
 
-    else if (soundChoice == 3) {
-        cout << "Recommended Genre: Hip-Hop\n";
+    cout << "Recommended Genre: R&B\n";
 
-        if (energyChoice == 1)
-            cout << "Recommended Mix: Chill Hip-Hop\n";
-        else if (energyChoice == 2)
-            cout << "Recommended Mix: Hip-Hop Essentials\n";
-        else
-            cout << "Recommended Mix: Hip-Hop Energy\n";
-    }
+    if (energyChoice == 1 && styleChoice == 1)
+        cout << "Recommended Mix: Smooth R&B Vocals\n";
+    else if (energyChoice == 1 && styleChoice == 2)
+        cout << "Recommended Mix: Chill R&B Beats\n";
+    else if (energyChoice == 3 && styleChoice == 2)
+        cout << "Recommended Mix: Upbeat R&B Mix\n";
+    else
+        cout << "Recommended Mix: R&B Essentials\n";
+}
 
-    else if (soundChoice == 4) {
-        cout << "Recommended Genre: Rock\n";
+else if (soundChoice == 3) {
 
-        if (energyChoice == 1)
-            cout << "Recommended Mix: Soft Rock Mix\n";
-        else if (energyChoice == 2)
-            cout << "Recommended Mix: Rock Essentials\n";
-        else
-            cout << "Recommended Mix: Rock Energy Mix\n";
-    }
+    cout << "Recommended Genre: Hip-Hop\n";
 
-    else if (soundChoice == 5) {
-        cout << "Recommended Genre: Electronic\n";
+    if (energyChoice == 1 && styleChoice == 2)
+        cout << "Recommended Mix: Lo-Fi Hip-Hop Beats\n";
+    else if (energyChoice == 3 && styleChoice == 2)
+        cout << "Recommended Mix: Hip-Hop Energy\n";
+    else if (styleChoice == 1)
+        cout << "Recommended Mix: Rap & Vocal Mix\n";
+    else
+        cout << "Recommended Mix: Hip-Hop Essentials\n";
+}
 
-        if (energyChoice == 1)
-            cout << "Recommended Mix: Chill Electronic\n";
-        else if (energyChoice == 2)
-            cout << "Recommended Mix: Electronic Mix\n";
-        else
-            cout << "Recommended Mix: Electronic Energy\n";
-    }
+else if (soundChoice == 4) {
 
-    else {
-        cout << "Invalid choice.\n";
-    }
+    cout << "Recommended Genre: Rock\n";
 
+    if (energyChoice == 1)
+        cout << "Recommended Mix: Soft Rock Mix\n";
+    else if (energyChoice == 3)
+        cout << "Recommended Mix: Hard Rock Energy\n";
+    else
+        cout << "Recommended Mix: Rock Essentials\n";
+}
+
+else if (soundChoice == 5) {
+
+    cout << "Recommended Genre: Electronic\n";
+
+    if (energyChoice == 1)
+        cout << "Recommended Mix: Chill Electronic\n";
+    else if (energyChoice == 3 && styleChoice == 2)
+        cout << "Recommended Mix: EDM Energy Mix\n";
+    else
+        cout << "Recommended Mix: Electronic Essentials\n";
+}
+
+else {
+    cout << "Invalid choice.\n";
+}
     cout << "------------------------------------\n";
 }}
