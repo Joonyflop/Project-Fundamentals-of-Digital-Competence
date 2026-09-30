@@ -5,12 +5,23 @@ using namespace std;
 
 // Member 2 - Genre Recommendation Module
 void genreRecommendation() {
-
+  int menuChoice;
     int genreChoice;
 
     cout << "\n====================================\n";
-    cout << "     YOUTUBE MUSIC - GENRE MIX\n";
+    cout << "          YOUTUBE MUSIC\n";
+    cout << "       GENRE RECOMMENDATION\n";
     cout << "====================================\n";
+
+    cout << "\nWhat would you like to do?\n\n";
+    cout << "1. Find My Genre\n";
+    cout << "2. Browse by Genre\n";
+    cout << "3. Back to Main Menu\n";
+
+    cout << "\nEnter your choice: ";
+    cin >> menuChoice;
+
+    cout << "\n------------------------------------\n";
 
     cout << "\nWhat genre are you in the mood for?\n\n";
     cout << "1. Pop\n";
