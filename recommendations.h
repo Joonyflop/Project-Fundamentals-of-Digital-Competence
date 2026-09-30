@@ -1,12 +1,45 @@
 #ifndef RECOMMENDATIONS_H
 #define RECOMMENDATIONS_H
 
-// Shared declarations used by the program and each recommendation module.
-int getValidChoice(const char* prompt, int minimum, int maximum);
+#include <string>
+#include <vector>
 
-void moodRecommendation();
-void genreRecommendation();
-void activityRecommendation();
-void discoveryRecommendation();
+using namespace std;
+
+
+// Stores genre recommendation result
+struct GenreResult {
+
+    string genre;
+    string mix;
+    vector<string> songs;
+};
+
+
+// Shared input validation
+int getValidChoice(
+    const char* prompt,
+    int minimum,
+    int maximum
+);
+
+
+// Genre recommendation logic
+GenreResult getGenreResult(
+    int soundChoice,
+    int energyChoice,
+    int styleChoice
+);
+
+
+// Recommendation modules
+GenreResult moodRecommendation();
+
+GenreResult genreRecommendation();
+
+string activityRecommendation();
+
+GenreResult discoveryRecommendation();
+
 
 #endif
