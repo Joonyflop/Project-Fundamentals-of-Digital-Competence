@@ -33,13 +33,13 @@ GenreResult getGenreResult(
 
 
 // Recommendation modules
-void moodRecommendation();
+GenreResult moodRecommendation();
 
 GenreResult genreRecommendation();
 
-void activityRecommendation();
+string activityRecommendation();
 
-void discoveryRecommendation();
+GenreResult discoveryRecommendation();
 
 
 #endif

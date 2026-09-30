@@ -7,28 +7,20 @@
 
 using namespace std;
 
-
 // Stores saved recommendations during current session
 vector<string> savedRecommendations;
 
-
-// ==================================================
-// CLEAR SCREEN
-// ==================================================
 
 void clearScreen() {
 
     system("cls");
 }
 
-
-// ==================================================
-// WAIT FOR USER
-// ==================================================
+// input from user
 
 void pressEnterToContinue() {
 
-    cout << "\nPress Enter to return to main menu...";
+    cout << "\nPress any key to return to the main menu...";
 
     cin.ignore(
         numeric_limits<streamsize>::max(),
@@ -38,10 +30,7 @@ void pressEnterToContinue() {
     cin.get();
 }
 
-
-// ==================================================
 // SHARED INPUT VALIDATION
-// ==================================================
 
 int getValidChoice(
     const char* prompt,
@@ -84,10 +73,7 @@ int getValidChoice(
 }
 
 
-// ==================================================
 // MAIN PROGRAM
-// ==================================================
-
 int main() {
 
     int choice;
@@ -97,11 +83,7 @@ int main() {
         // Clear previous screen
         clearScreen();
 
-
-        // ==================================================
         // MAIN MENU
-        // ==================================================
-
         cout << "====================================\n";
         cout << "      MUSIC RECOMMENDATION SYSTEM\n";
         cout << "====================================\n";
@@ -126,17 +108,12 @@ int main() {
         // Stores recommendation produced in current round
         string currentRecommendation = "";
 
-
-        // ==================================================
         // MENU OPTIONS
-        // ==================================================
 
         switch (choice) {
 
 
-            // --------------------------------------------------
             // MOOD
-            // --------------------------------------------------
 
             case 1: {
 
@@ -150,10 +127,7 @@ int main() {
                 break;
             }
 
-
-            // --------------------------------------------------
             // GENRE
-            // --------------------------------------------------
 
             case 2: {
 
@@ -190,15 +164,13 @@ int main() {
 
             case 3: {
 
-                clearScreen();
+            clearScreen();
 
+            currentRecommendation =
                 activityRecommendation();
 
-                currentRecommendation =
-                    "Activity Recommendation";
-
-                break;
-            }
+            break;
+        }
 
 
             // --------------------------------------------------
@@ -217,11 +189,7 @@ int main() {
                 break;
             }
 
-
-            // --------------------------------------------------
             // SAVED RECOMMENDATIONS
-            // --------------------------------------------------
-
             case 5: {
 
                 clearScreen();
@@ -283,19 +251,14 @@ int main() {
         }
 
 
-        // ==================================================
         // SAVE RECOMMENDATION
-        // ==================================================
 
         if (!currentRecommendation.empty()) {
 
             int saveChoice;
 
 
-            cout << "\nSave this recommendation?\n\n";
-
-            cout << "1. Yes\n";
-            cout << "0. No\n";
+           cout << "\nWould you like to save this recommendation? (1 = Yes, 0 = No): ";
 
 
             saveChoice = getValidChoice(
@@ -322,16 +285,6 @@ int main() {
 
             pressEnterToContinue();
         }
-
-
-        // User returned without generating a recommendation
-        else if (choice >= 1 && choice <= 4) {
-
-            cout << "\nNo recommendation record found.\n";
-
-            pressEnterToContinue();
-        }
-
 
     } while (choice != 6);
 

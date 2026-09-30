@@ -4,9 +4,7 @@
 using namespace std;
 
 
-// ==================================================
 // SHARED GENRE RECOMMENDATION LOGIC
-// ==================================================
 
 GenreResult getGenreResult(
     int soundChoice,
@@ -39,9 +37,9 @@ GenreResult getGenreResult(
 
 
         result.songs = {
-            "Espresso - Sabrina Carpenter",
-            "BIRDS OF A FEATHER - Billie Eilish",
-            "Die With A Smile - Lady Gaga & Bruno Mars"
+            "'Espresso' by Sabrina Carpenter",
+            "'BIRDS OF A FEATHER' by Billie Eilish",
+            "'Die With A Smile' by Lady Gaga & Bruno Mars"
         };
     }
 
@@ -65,9 +63,9 @@ GenreResult getGenreResult(
 
 
         result.songs = {
-            "Snooze - SZA",
-            "Best Part - Daniel Caesar ft. H.E.R.",
-            "Leave The Door Open - Silk Sonic"
+            "'Snooze' by SZA",
+            "'Best Part' by Daniel Caesar ft. H.E.R.",
+            "'Leave The Door Open' by Silk Sonic"
         };
     }
 
@@ -91,9 +89,9 @@ GenreResult getGenreResult(
 
 
         result.songs = {
-            "HUMBLE. - Kendrick Lamar",
-            "God's Plan - Drake",
-            "See You Again - Tyler, The Creator ft. Kali Uchis"
+            "'HUMBLE.' by Kendrick Lamar",
+            "'God's Plan' by Drake",
+            "'See You Again' by Tyler, The Creator ft. Kali Uchis"
         };
     }
 
@@ -114,9 +112,9 @@ GenreResult getGenreResult(
 
 
         result.songs = {
-            "Smells Like Teen Spirit - Nirvana",
-            "Do I Wanna Know? - Arctic Monkeys",
-            "The Pretender - Foo Fighters"
+            "'Smells Like Teen Spirit' by Nirvana",
+            "'Do I Wanna Know?' by Arctic Monkeys",
+            "'The Pretender' by Foo Fighters"
         };
     }
 
@@ -137,9 +135,9 @@ GenreResult getGenreResult(
 
 
         result.songs = {
-            "Clarity - Zedd ft. Foxes",
-            "Wake Me Up - Avicii",
-            "Something Just Like This - The Chainsmokers & Coldplay"
+            "'Clarity' by Zedd ft. Foxes",
+            "'Wake Me Up' by Avicii",
+            "'Something Just Like This' by The Chainsmokers & Coldplay"
         };
     }
 
@@ -148,9 +146,7 @@ GenreResult getGenreResult(
 }
 
 
-// ==================================================
-// MEMBER 2 - GENRE RECOMMENDATION MODULE
-// ==================================================
+// GENRE RECOMMENDATION MENU
 
 GenreResult genreRecommendation() {
 
@@ -184,9 +180,7 @@ GenreResult genreRecommendation() {
     }
 
 
-    // ==================================================
     // OPTION 1: FIND MY GENRE
-    // ==================================================
 
     if (menuChoice == 1) {
 
@@ -268,17 +262,15 @@ GenreResult genreRecommendation() {
         cout << "Recommended Genre: "
              << result.genre << "\n";
 
-        cout << "Recommended Mix: "
-             << result.mix << "\n";
-
-        cout << "\nSuggested Songs:\n";
-
+        cout << "\nSuggestions:\n";
 
         for (const string& song : result.songs) {
 
-            cout << "- " << song << "\n";
+            cout << "   - Song: " << song << "\n";
         }
 
+        cout << "   - Playlist: "
+             << result.mix << "\n";
 
         cout << "------------------------------------\n";
 
@@ -288,9 +280,7 @@ GenreResult genreRecommendation() {
     }
 
 
-    // ==================================================
     // OPTION 2: BROWSE BY GENRE
-    // ==================================================
 
     else if (menuChoice == 2) {
 
@@ -325,9 +315,9 @@ GenreResult genreRecommendation() {
             result.mix = "Pop Hits Mix";
 
             result.songs = {
-                "Espresso - Sabrina Carpenter",
-                "BIRDS OF A FEATHER - Billie Eilish",
-                "Die With A Smile - Lady Gaga & Bruno Mars"
+                "'Espresso' by Sabrina Carpenter",
+                "'BIRDS OF A FEATHER' by Billie Eilish",
+                "'Die With A Smile' by Lady Gaga & Bruno Mars"
             };
         }
 
@@ -339,9 +329,9 @@ GenreResult genreRecommendation() {
             result.mix = "R&B Vibes";
 
             result.songs = {
-                "Snooze - SZA",
-                "Best Part - Daniel Caesar ft. H.E.R.",
-                "Leave The Door Open - Silk Sonic"
+                "'Snooze' by SZA",
+                "'Best Part' by Daniel Caesar ft. H.E.R.",
+                "'Leave The Door Open' by Silk Sonic"
             };
         }
 
@@ -353,9 +343,9 @@ GenreResult genreRecommendation() {
             result.mix = "Hip-Hop Essentials";
 
             result.songs = {
-                "HUMBLE. - Kendrick Lamar",
-                "God's Plan - Drake",
-                "See You Again - Tyler, The Creator ft. Kali Uchis"
+                "'HUMBLE.' by Kendrick Lamar",
+                "'God's Plan' by Drake",
+                "'See You Again' by Tyler, The Creator ft. Kali Uchis"
             };
         }
 
@@ -367,9 +357,9 @@ GenreResult genreRecommendation() {
             result.mix = "Rock Essentials";
 
             result.songs = {
-                "Smells Like Teen Spirit - Nirvana",
-                "Do I Wanna Know? - Arctic Monkeys",
-                "The Pretender - Foo Fighters"
+                "'Smells Like Teen Spirit' by Nirvana",
+                "'Do I Wanna Know?' by Arctic Monkeys",
+                "'The Pretender' by Foo Fighters"
             };
         }
 
@@ -381,30 +371,30 @@ GenreResult genreRecommendation() {
             result.mix = "Electronic Energy";
 
             result.songs = {
-                "Clarity - Zedd ft. Foxes",
-                "Wake Me Up - Avicii",
-                "Something Just Like This - The Chainsmokers & Coldplay"
+                "'Clarity' by Zedd ft. Foxes",
+                "'Wake Me Up' by Avicii",
+                "'Something Just Like This' by The Chainsmokers & Coldplay"
             };
         }
 
 
         // Display selected genre
         cout << "\n------------------------------------\n";
+        cout << "          YOUR RESULT\n";
+        cout << "------------------------------------\n";
 
-        cout << "Genre: "
+        cout << "Recommended Genre: "
              << result.genre << "\n";
 
-        cout << "Recommended Mix: "
-             << result.mix << "\n";
-
-        cout << "\nSuggested Songs:\n";
-
+        cout << "\nSuggestions:\n";
 
         for (const string& song : result.songs) {
 
-            cout << "- " << song << "\n";
+            cout << "   - Song: " << song << "\n";
         }
 
+        cout << "   - Playlist: "
+             << result.mix << "\n";
 
         cout << "------------------------------------\n";
 
@@ -414,9 +404,7 @@ GenreResult genreRecommendation() {
     }
 
 
-    // ==================================================
     // OPTION 3: BACK TO MAIN MENU
-    // ==================================================
 
     else {
 
