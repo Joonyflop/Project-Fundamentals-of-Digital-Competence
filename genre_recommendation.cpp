@@ -6,7 +6,6 @@ using namespace std;
 
 // ==================================================
 // SHARED GENRE RECOMMENDATION LOGIC
-// Can be used by both terminal and web interface
 // ==================================================
 
 GenreResult getGenreResult(
@@ -14,7 +13,9 @@ GenreResult getGenreResult(
     int energyChoice,
     int styleChoice
 ) {
+
     GenreResult result;
+
 
     // POP
     if (soundChoice == 1) {
@@ -35,6 +36,7 @@ GenreResult getGenreResult(
 
         else
             result.mix = "Pop Hits Mix";
+
 
         result.songs = {
             "Espresso - Sabrina Carpenter",
@@ -61,6 +63,7 @@ GenreResult getGenreResult(
         else
             result.mix = "R&B Essentials";
 
+
         result.songs = {
             "Snooze - SZA",
             "Best Part - Daniel Caesar ft. H.E.R.",
@@ -86,6 +89,7 @@ GenreResult getGenreResult(
         else
             result.mix = "Hip-Hop Essentials";
 
+
         result.songs = {
             "HUMBLE. - Kendrick Lamar",
             "God's Plan - Drake",
@@ -107,6 +111,7 @@ GenreResult getGenreResult(
 
         else
             result.mix = "Rock Essentials";
+
 
         result.songs = {
             "Smells Like Teen Spirit - Nirvana",
@@ -130,12 +135,14 @@ GenreResult getGenreResult(
         else
             result.mix = "Electronic Essentials";
 
+
         result.songs = {
             "Clarity - Zedd ft. Foxes",
             "Wake Me Up - Avicii",
             "Something Just Like This - The Chainsmokers & Coldplay"
         };
     }
+
 
     return result;
 }
@@ -145,7 +152,7 @@ GenreResult getGenreResult(
 // MEMBER 2 - GENRE RECOMMENDATION MODULE
 // ==================================================
 
-void genreRecommendation() {
+GenreResult genreRecommendation() {
 
     int menuChoice;
     int genreChoice;
@@ -154,13 +161,13 @@ void genreRecommendation() {
     int styleChoice;
 
 
-    // Display genre recommendation menu
+    // Genre menu
     cout << "\n====================================\n";
-    cout << "          YOUTUBE MUSIC\n";
     cout << "       GENRE RECOMMENDATION\n";
     cout << "====================================\n";
 
     cout << "\nWhat would you like to do?\n\n";
+
     cout << "1. Find My Genre\n";
     cout << "2. Browse by Genre\n";
     cout << "3. Back to Main Menu\n";
@@ -184,11 +191,14 @@ void genreRecommendation() {
     if (menuChoice == 1) {
 
         cout << "\n------ FIND MY GENRE ------\n";
-        cout << "Answer a few questions and we will find a genre for you!\n";
+
+        cout << "Answer a few questions and we will "
+                "find a genre for you!\n";
 
 
         // QUESTION 1
         cout << "\n- What kind of sound do you prefer?\n";
+
         cout << "1. Catchy and mainstream\n";
         cout << "2. Smooth and soulful\n";
         cout << "3. Strong beats and rhythm\n";
@@ -208,6 +218,7 @@ void genreRecommendation() {
 
         // QUESTION 2
         cout << "\n- What energy level do you prefer?\n";
+
         cout << "1. Chill\n";
         cout << "2. Moderate\n";
         cout << "3. High energy\n";
@@ -225,6 +236,7 @@ void genreRecommendation() {
 
         // QUESTION 3
         cout << "\n- What do you enjoy more in music?\n";
+
         cout << "1. Vocals\n";
         cout << "2. Beats\n";
         cout << "3. Both\n";
@@ -240,7 +252,7 @@ void genreRecommendation() {
         }
 
 
-        // Get recommendation from shared C++ logic
+        // Generate recommendation
         GenreResult result = getGenreResult(
             soundChoice,
             energyChoice,
@@ -262,7 +274,6 @@ void genreRecommendation() {
         cout << "\nSuggested Songs:\n";
 
 
-        // Display songs
         for (const string& song : result.songs) {
 
             cout << "- " << song << "\n";
@@ -270,6 +281,10 @@ void genreRecommendation() {
 
 
         cout << "------------------------------------\n";
+
+
+        // Return result to main.cpp
+        return result;
     }
 
 
@@ -293,7 +308,6 @@ void genreRecommendation() {
         cin >> genreChoice;
 
 
-        // Validate genre
         while (genreChoice < 1 || genreChoice > 5) {
 
             cout << "Invalid choice. Please enter 1-5: ";
@@ -301,79 +315,102 @@ void genreRecommendation() {
         }
 
 
-        cout << "\n------------------------------------\n";
+        GenreResult result;
+
+
+        // POP
+        if (genreChoice == 1) {
+
+            result.genre = "Pop";
+            result.mix = "Pop Hits Mix";
+
+            result.songs = {
+                "Espresso - Sabrina Carpenter",
+                "BIRDS OF A FEATHER - Billie Eilish",
+                "Die With A Smile - Lady Gaga & Bruno Mars"
+            };
+        }
+
+
+        // R&B
+        else if (genreChoice == 2) {
+
+            result.genre = "R&B";
+            result.mix = "R&B Vibes";
+
+            result.songs = {
+                "Snooze - SZA",
+                "Best Part - Daniel Caesar ft. H.E.R.",
+                "Leave The Door Open - Silk Sonic"
+            };
+        }
+
+
+        // HIP-HOP
+        else if (genreChoice == 3) {
+
+            result.genre = "Hip-Hop";
+            result.mix = "Hip-Hop Essentials";
+
+            result.songs = {
+                "HUMBLE. - Kendrick Lamar",
+                "God's Plan - Drake",
+                "See You Again - Tyler, The Creator ft. Kali Uchis"
+            };
+        }
+
+
+        // ROCK
+        else if (genreChoice == 4) {
+
+            result.genre = "Rock";
+            result.mix = "Rock Essentials";
+
+            result.songs = {
+                "Smells Like Teen Spirit - Nirvana",
+                "Do I Wanna Know? - Arctic Monkeys",
+                "The Pretender - Foo Fighters"
+            };
+        }
+
+
+        // ELECTRONIC
+        else if (genreChoice == 5) {
+
+            result.genre = "Electronic";
+            result.mix = "Electronic Energy";
+
+            result.songs = {
+                "Clarity - Zedd ft. Foxes",
+                "Wake Me Up - Avicii",
+                "Something Just Like This - The Chainsmokers & Coldplay"
+            };
+        }
 
 
         // Display selected genre
-        switch (genreChoice) {
+        cout << "\n------------------------------------\n";
 
-            case 1:
+        cout << "Genre: "
+             << result.genre << "\n";
 
-                cout << "Genre: Pop\n";
-                cout << "Recommended Mix: Pop Hits Mix\n";
+        cout << "Recommended Mix: "
+             << result.mix << "\n";
 
-                cout << "\nSuggested Songs:\n";
-                cout << "- Espresso - Sabrina Carpenter\n";
-                cout << "- BIRDS OF A FEATHER - Billie Eilish\n";
-                cout << "- Die With A Smile - Lady Gaga & Bruno Mars\n";
-
-                break;
+        cout << "\nSuggested Songs:\n";
 
 
-            case 2:
+        for (const string& song : result.songs) {
 
-                cout << "Genre: R&B\n";
-                cout << "Recommended Mix: R&B Vibes\n";
-
-                cout << "\nSuggested Songs:\n";
-                cout << "- Snooze - SZA\n";
-                cout << "- Best Part - Daniel Caesar ft. H.E.R.\n";
-                cout << "- Leave The Door Open - Silk Sonic\n";
-
-                break;
-
-
-            case 3:
-
-                cout << "Genre: Hip-Hop\n";
-                cout << "Recommended Mix: Hip-Hop Essentials\n";
-
-                cout << "\nSuggested Songs:\n";
-                cout << "- HUMBLE. - Kendrick Lamar\n";
-                cout << "- God's Plan - Drake\n";
-                cout << "- See You Again - Tyler, The Creator ft. Kali Uchis\n";
-
-                break;
-
-
-            case 4:
-
-                cout << "Genre: Rock\n";
-                cout << "Recommended Mix: Rock Essentials\n";
-
-                cout << "\nSuggested Songs:\n";
-                cout << "- Smells Like Teen Spirit - Nirvana\n";
-                cout << "- Do I Wanna Know? - Arctic Monkeys\n";
-                cout << "- The Pretender - Foo Fighters\n";
-
-                break;
-
-
-            case 5:
-
-                cout << "Genre: Electronic\n";
-                cout << "Recommended Mix: Electronic Energy\n";
-
-                cout << "\nSuggested Songs:\n";
-                cout << "- Clarity - Zedd ft. Foxes\n";
-                cout << "- Wake Me Up - Avicii\n";
-                cout << "- Something Just Like This - The Chainsmokers & Coldplay\n";
-
-                break;
+            cout << "- " << song << "\n";
         }
 
 
         cout << "------------------------------------\n";
+
+
+        // Return result to main.cpp
+        return result;
     }
 
 
@@ -381,8 +418,11 @@ void genreRecommendation() {
     // OPTION 3: BACK TO MAIN MENU
     // ==================================================
 
-    else if (menuChoice == 3) {
+    else {
 
         cout << "\nReturning to main menu...\n";
+
+        // Empty result means nothing should be saved
+        return {"", "", {}};
     }
 }

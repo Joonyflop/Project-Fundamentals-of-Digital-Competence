@@ -6,26 +6,40 @@
 
 using namespace std;
 
-// Shared declarations used by the program and each recommendation module.
-int getValidChoice(const char* prompt, int minimum, int maximum);
 
-// Stores the result of a genre recommendation
+// Stores genre recommendation result
 struct GenreResult {
+
     string genre;
     string mix;
     vector<string> songs;
 };
 
-// Reusable genre recommendation logic for terminal and web interface
+
+// Shared input validation
+int getValidChoice(
+    const char* prompt,
+    int minimum,
+    int maximum
+);
+
+
+// Genre recommendation logic
 GenreResult getGenreResult(
     int soundChoice,
     int energyChoice,
     int styleChoice
 );
 
+
+// Recommendation modules
 void moodRecommendation();
-void genreRecommendation();
+
+GenreResult genreRecommendation();
+
 void activityRecommendation();
+
 void discoveryRecommendation();
+
 
 #endif
