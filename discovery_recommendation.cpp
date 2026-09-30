@@ -4,24 +4,47 @@
 
 using namespace std;
 
+
 // Helper function to display discovery suggestions
-static void showDiscovery(const string& category, const string& vibe,
-                          const string tracks[], int count) {
+static GenreResult showDiscovery(
+    const string& category,
+    const string& vibe,
+    const string tracks[],
+    int count
+) {
+
+    GenreResult result;
+
+    // Store recommendation information
+    result.genre = category;
+    result.mix = vibe;
+
     cout << "\n------------------------------------\n";
     cout << "  RECOMMENDATION: " << category << "\n";
     cout << "  Vibe: " << vibe << "\n";
     cout << "------------------------------------\n";
+
     for (int i = 0; i < count; i++) {
+
         cout << "  - " << tracks[i] << "\n";
+
+        // Store each recommendation
+        result.songs.push_back(tracks[i]);
     }
+
     cout << "------------------------------------\n";
+
+    return result;
 }
 
+
 // Member 4 - Music Discovery / Preference Module
-void discoveryRecommendation() {
+GenreResult discoveryRecommendation() {
+
     // ----------------------------------------------------
     // Datasets: Familiar Classics
     // ----------------------------------------------------
+
     const string familiarJpop[] = {
         "Song: 'First Love' by Hikaru Utada",
         "Song: 'Lemon' by Kenshi Yonezu",
@@ -76,9 +99,11 @@ void discoveryRecommendation() {
         "Playlist: Timeless Jazz & Blues Essentials"
     };
 
+
     // ----------------------------------------------------
     // Datasets: Discover New Music
     // ----------------------------------------------------
+
     const string newJpop[] = {
         "Song: 'Idol' by YOASOBI",
         "Song: 'Night Dancer' by imase",
@@ -133,86 +158,213 @@ void discoveryRecommendation() {
         "Playlist: Contemporary Jazz & Blues Revival"
     };
 
+
     int mainChoice;
 
-    do {
-        cout << "\n====================================\n";
-        cout << "          YOUTUBE MUSIC             \n";
-        cout << "       MUSIC DISCOVERY MENU         \n";
-        cout << "====================================\n";
-        cout << "What are you in the mood for?\n";
-        cout << "1. Listen to Familiar Music\n";
-        cout << "2. Discover New Music\n";
-        cout << "3. Back to Main Menu\n";
 
-        mainChoice = getValidChoice("Enter your choice (1-3): ", 1, 3);
+    cout << "\n====================================\n";
+    cout << "          YOUTUBE MUSIC             \n";
+    cout << "       MUSIC DISCOVERY MENU         \n";
+    cout << "====================================\n";
 
-        if (mainChoice == 1) {
-            cout << "\n--- FAMILIAR MUSIC CATEGORIES ---\n";
-            cout << "1. J-Pop Classics\n";
-            cout << "2. K-Pop Essentials\n";
-            cout << "3. C-Pop & Mandopop Hall of Fame\n";
-            cout << "4. 90s Jams & Throwbacks\n";
-            cout << "5. Classic Indie Anthems\n";
-            cout << "6. Timeless Jazz & Blues\n";
+    cout << "What are you in the mood for?\n";
 
-            int subChoice = getValidChoice("Enter category (1-6): ", 1, 6);
+    cout << "1. Listen to Familiar Music\n";
+    cout << "2. Discover New Music\n";
+    cout << "3. Back to Main Menu\n";
 
-            switch (subChoice) {
-                case 1:
-                    showDiscovery("Familiar J-Pop", "Nostalgic, widely-loved Japanese hits", familiarJpop, 6);
-                    break;
-                case 2:
-                    showDiscovery("Familiar K-Pop", "Global Korean pop anthems everyone knows", familiarKpop, 6);
-                    break;
-                case 3:
-                    showDiscovery("Familiar C-Pop", "Timeless Mandopop ballads and classics", familiarCpop, 6);
-                    break;
-                case 4:
-                    showDiscovery("90s Classics", "Nostalgic rock, pop throwbacks & iconic R&B", classic90s, 6);
-                    break;
-                case 5:
-                    showDiscovery("Classic Indie", "Famous alternative and indie rock anthems", classicIndie, 6);
-                    break;
-                case 6:
-                    showDiscovery("Timeless Jazz & Blues", "Smooth sax, smoky brass & soulful electric guitar", classicJazzBlues, 6);
-                    break;
-            }
-        } 
-        else if (mainChoice == 2) {
-            cout << "\n--- DISCOVER NEW MUSIC ---\n";
-            cout << "1. New J-Pop Releases\n";
-            cout << "2. New K-Pop Chart-Toppers\n";
-            cout << "3. Fresh C-Pop & Mandopop Tracks\n";
-            cout << "4. Alt Hip-Hop & R&B\n";
-            cout << "5. Modern Indie Discoveries\n";
-            cout << "6. Contemporary Jazz & Blues Revival\n";
+    mainChoice = getValidChoice(
+        "Enter your choice (1-3): ",
+        1,
+        3
+    );
 
-            int subChoice = getValidChoice("Enter category (1-6): ", 1, 6);
 
-            switch (subChoice) {
-                case 1:
-                    showDiscovery("New J-Pop", "Viral Japanese tracks and recent anime hits", newJpop, 6);
-                    break;
-                case 2:
-                    showDiscovery("New K-Pop", "Latest releases and trending Korean tracks", newKpop, 6);
-                    break;
-                case 3:
-                    showDiscovery("New C-Pop", "Modern Mandopop releases and acoustic sounds", newCpop, 6);
-                    break;
-                case 4:
-                    showDiscovery("Alt Hip-Hop & R&B", "Atmospheric, neo-soul & experimental groove", altHiphopRnb, 6);
-                    break;
-                case 5:
-                    showDiscovery("Modern Indie", "Upbeat guitar riffs, synth riffs & fresh hooks", newIndieBands, 6);
-                    break;
-                case 6:
-                    showDiscovery("Jazz & Blues Revival", "Fresh vocal jazz and modern blues arrangements", newJazzBlues, 6);
-                    break;
-            }
+    // ----------------------------------------------------
+    // OPTION 1: FAMILIAR MUSIC
+    // ----------------------------------------------------
+
+    if (mainChoice == 1) {
+
+        cout << "\n--- FAMILIAR MUSIC CATEGORIES ---\n";
+
+        cout << "1. J-Pop Classics\n";
+        cout << "2. K-Pop Essentials\n";
+        cout << "3. C-Pop & Mandopop Hall of Fame\n";
+        cout << "4. 90s Jams & Throwbacks\n";
+        cout << "5. Classic Indie Anthems\n";
+        cout << "6. Timeless Jazz & Blues\n";
+
+        int subChoice = getValidChoice(
+            "Enter category (1-6): ",
+            1,
+            6
+        );
+
+
+        switch (subChoice) {
+
+            case 1:
+
+                return showDiscovery(
+                    "Familiar J-Pop",
+                    "Nostalgic, widely-loved Japanese hits",
+                    familiarJpop,
+                    6
+                );
+
+
+            case 2:
+
+                return showDiscovery(
+                    "Familiar K-Pop",
+                    "Global Korean pop anthems everyone knows",
+                    familiarKpop,
+                    6
+                );
+
+
+            case 3:
+
+                return showDiscovery(
+                    "Familiar C-Pop",
+                    "Timeless Mandopop ballads and classics",
+                    familiarCpop,
+                    6
+                );
+
+
+            case 4:
+
+                return showDiscovery(
+                    "90s Classics",
+                    "Nostalgic rock, pop throwbacks & iconic R&B",
+                    classic90s,
+                    6
+                );
+
+
+            case 5:
+
+                return showDiscovery(
+                    "Classic Indie",
+                    "Famous alternative and indie rock anthems",
+                    classicIndie,
+                    6
+                );
+
+
+            case 6:
+
+                return showDiscovery(
+                    "Timeless Jazz & Blues",
+                    "Smooth sax, smoky brass & soulful electric guitar",
+                    classicJazzBlues,
+                    6
+                );
         }
-        else if (mainChoice == 3) {
-            cout << "\nReturning to main menu...\n";
+    }
+
+
+    // ----------------------------------------------------
+    // OPTION 2: DISCOVER NEW MUSIC
+    // ----------------------------------------------------
+
+    else if (mainChoice == 2) {
+
+        cout << "\n--- DISCOVER NEW MUSIC ---\n";
+
+        cout << "1. New J-Pop Releases\n";
+        cout << "2. New K-Pop Chart-Toppers\n";
+        cout << "3. Fresh C-Pop & Mandopop Tracks\n";
+        cout << "4. Alt Hip-Hop & R&B\n";
+        cout << "5. Modern Indie Discoveries\n";
+        cout << "6. Contemporary Jazz & Blues Revival\n";
+
+        int subChoice = getValidChoice(
+            "Enter category (1-6): ",
+            1,
+            6
+        );
+
+
+        switch (subChoice) {
+
+            case 1:
+
+                return showDiscovery(
+                    "New J-Pop",
+                    "Viral Japanese tracks and recent anime hits",
+                    newJpop,
+                    6
+                );
+
+
+            case 2:
+
+                return showDiscovery(
+                    "New K-Pop",
+                    "Latest releases and trending Korean tracks",
+                    newKpop,
+                    6
+                );
+
+
+            case 3:
+
+                return showDiscovery(
+                    "New C-Pop",
+                    "Modern Mandopop releases and acoustic sounds",
+                    newCpop,
+                    6
+                );
+
+
+            case 4:
+
+                return showDiscovery(
+                    "Alt Hip-Hop & R&B",
+                    "Atmospheric, neo-soul & experimental groove",
+                    altHiphopRnb,
+                    6
+                );
+
+
+            case 5:
+
+                return showDiscovery(
+                    "Modern Indie",
+                    "Upbeat guitar riffs, synth riffs & fresh hooks",
+                    newIndieBands,
+                    6
+                );
+
+
+            case 6:
+
+                return showDiscovery(
+                    "Jazz & Blues Revival",
+                    "Fresh vocal jazz and modern blues arrangements",
+                    newJazzBlues,
+                    6
+                );
         }
-    } while (mainChoice != 3);
+    }
+
+
+    // ----------------------------------------------------
+    // OPTION 3: BACK TO MAIN MENU
+    // ----------------------------------------------------
+
+    else if (mainChoice == 3) {
+
+        cout << "\nReturning to main menu...\n";
+
+        // Empty result means nothing should be saved
+        return {"", "", {}};
+    }
+
+
+    // Safety return
+    return {"", "", {}};
 }
