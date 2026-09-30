@@ -41,7 +41,7 @@ void discoveryRecommendation() {
 
     // 3. K-Pop
     const string kpop[] = {
-        "Song: 'APT.' by ROSÉ & Bruno Mars",
+        "Song: 'Bloody Paradise' by ENHYPEN",
         "Song: 'Supernova' by aespa",
         "Song: 'Magnetic' by ILLIT",
         "Song: 'SPOT!' by ZICO ft. JENNIE",
