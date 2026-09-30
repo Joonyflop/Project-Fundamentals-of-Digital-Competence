@@ -5,7 +5,8 @@ using namespace std;
 
 // Member 2 - Genre Recommendation Module
 void genreRecommendation() {
-  int menuChoice;
+
+    int menuChoice;
     int genreChoice;
 
     cout << "\n====================================\n";
@@ -21,49 +22,70 @@ void genreRecommendation() {
     cout << "\nEnter your choice: ";
     cin >> menuChoice;
 
-    cout << "\n------------------------------------\n";
+    // Find My Genre - will be developed in the next commit
+    if (menuChoice == 1) {
 
-    cout << "\nWhat genre are you in the mood for?\n\n";
-    cout << "1. Pop\n";
-    cout << "2. R&B\n";
-    cout << "3. Hip-Hop\n";
-    cout << "4. Rock\n";
-    cout << "5. Electronic\n";
-
-    cout << "\nEnter your choice (1-5): ";
-    cin >> genreChoice;
-
-    cout << "\n------------------------------------\n";
-
-    switch (genreChoice) {
-        case 1:
-            cout << "Genre: Pop\n";
-            cout << "Recommended Mix: Pop Hits Mix\n";
-            break;
-
-        case 2:
-            cout << "Genre: R&B\n";
-            cout << "Recommended Mix: R&B Vibes\n";
-            break;
-
-        case 3:
-            cout << "Genre: Hip-Hop\n";
-            cout << "Recommended Mix: Hip-Hop Essentials\n";
-            break;
-
-        case 4:
-            cout << "Genre: Rock\n";
-            cout << "Recommended Mix: Rock Essentials\n";
-            break;
-
-        case 5:
-            cout << "Genre: Electronic\n";
-            cout << "Recommended Mix: Electronic Energy\n";
-            break;
-
-        default:
-            cout << "Invalid choice. Please select 1-5.\n";
+        cout << "\n------ FIND MY GENRE ------\n";
     }
 
-    cout << "------------------------------------\n";
+    // Browse by Genre
+    else if (menuChoice == 2) {
+
+        cout << "\n------ BROWSE BY GENRE ------\n";
+
+        cout << "\nWhat genre are you in the mood for?\n\n";
+        cout << "1. Pop\n";
+        cout << "2. R&B\n";
+        cout << "3. Hip-Hop\n";
+        cout << "4. Rock\n";
+        cout << "5. Electronic\n";
+
+        cout << "\nEnter your choice (1-5): ";
+        cin >> genreChoice;
+
+        cout << "\n------------------------------------\n";
+
+        switch (genreChoice) {
+
+            case 1:
+                cout << "Genre: Pop\n";
+                cout << "Recommended Mix: Pop Hits Mix\n";
+                break;
+
+            case 2:
+                cout << "Genre: R&B\n";
+                cout << "Recommended Mix: R&B Vibes\n";
+                break;
+
+            case 3:
+                cout << "Genre: Hip-Hop\n";
+                cout << "Recommended Mix: Hip-Hop Essentials\n";
+                break;
+
+            case 4:
+                cout << "Genre: Rock\n";
+                cout << "Recommended Mix: Rock Essentials\n";
+                break;
+
+            case 5:
+                cout << "Genre: Electronic\n";
+                cout << "Recommended Mix: Electronic Energy\n";
+                break;
+
+            default:
+                cout << "Invalid choice. Please select 1-5.\n";
+        }
+
+        cout << "------------------------------------\n";
+    }
+
+    else if (menuChoice == 3) {
+
+        cout << "\nReturning to main menu...\n";
+    }
+
+    else {
+
+        cout << "\nInvalid choice.\n";
+    }
 }
