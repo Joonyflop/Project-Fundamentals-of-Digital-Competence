@@ -3,7 +3,6 @@
 
 using namespace std;
 
-// Member 2 - Genre Recommendation Module
 void genreRecommendation() {
 
     int menuChoice;
@@ -24,7 +23,10 @@ void genreRecommendation() {
 
     cout << "\nEnter your choice: ";
     cin >> menuChoice;
-
+    while (menuChoice < 1 || menuChoice > 3) {
+    cout << "Invalid choice. Please enter 1-3: ";
+    cin >> menuChoice;
+}
    
    if (menuChoice == 1) {
 
@@ -32,7 +34,7 @@ void genreRecommendation() {
     cout << "Answer a few questions and we will find a genre for you!\n";
 
     // Question 1
-    cout << "\n1. What kind of sound do you prefer?\n";
+    cout << "\n- What kind of sound do you prefer?\n";
     cout << "1. Catchy and mainstream\n";
     cout << "2. Smooth and soulful\n";
     cout << "3. Strong beats and rhythm\n";
@@ -40,22 +42,34 @@ void genreRecommendation() {
     cout << "5. Electronic and synthesized\n";
     cout << "\nEnter your choice (1-5): ";
     cin >> soundChoice;
+    while (soundChoice < 1 || soundChoice > 5) {
+    cout << "Invalid choice. Please enter 1-5: ";
+    cin >> soundChoice;
+}
 
     // Question 2
-    cout << "\n2. What energy level do you prefer?\n";
+    cout << "\n- What energy level do you prefer?\n";
     cout << "1. Chill\n";
     cout << "2. Moderate\n";
     cout << "3. High energy\n";
     cout << "\nEnter your choice (1-3): ";
     cin >> energyChoice;
+    while (energyChoice < 1 || energyChoice > 3) {
+    cout << "Invalid choice. Please enter 1-3: ";
+    cin >> energyChoice;
+}
 
     // Question 3
-    cout << "\n3. What do you enjoy more in music?\n";
+    cout << "\n- What do you enjoy more in music?\n";
     cout << "1. Vocals\n";
     cout << "2. Beats\n";
     cout << "3. Both\n";
     cout << "\nEnter your choice (1-3): ";
     cin >> styleChoice;
+    while (styleChoice < 1 || styleChoice > 3) {
+    cout << "Invalid choice. Please enter 1-3: ";
+    cin >> styleChoice;
+}
 
     cout << "\n------------------------------------\n";
     cout << "          YOUR RESULT\n";
@@ -132,5 +146,70 @@ else if (soundChoice == 5) {
 else {
     cout << "Invalid choice.\n";
 }
+  cout << "------------------------------------\n";
+}
+
+// Browse by Genre
+else if (menuChoice == 2) {
+
+    cout << "\n------ BROWSE BY GENRE ------\n";
+
+    cout << "\nChoose your preferred genre.\n\n";
+    cout << "1. Pop\n";
+    cout << "2. R&B\n";
+    cout << "3. Hip-Hop\n";
+    cout << "4. Rock\n";
+    cout << "5. Electronic\n";
+
+    cout << "\nEnter your choice (1-5): ";
+    cin >> genreChoice;
+    while (genreChoice < 1 || genreChoice > 5) {
+    cout << "Invalid choice. Please enter 1-5: ";
+    cin >> genreChoice;
+}
+
+    cout << "\n------------------------------------\n";
+
+    switch (genreChoice) {
+
+        case 1:
+            cout << "Genre: Pop\n";
+            cout << "Recommended Mix: Pop Hits Mix\n";
+            break;
+
+        case 2:
+            cout << "Genre: R&B\n";
+            cout << "Recommended Mix: R&B Vibes\n";
+            break;
+
+        case 3:
+            cout << "Genre: Hip-Hop\n";
+            cout << "Recommended Mix: Hip-Hop Essentials\n";
+            break;
+
+        case 4:
+            cout << "Genre: Rock\n";
+            cout << "Recommended Mix: Rock Essentials\n";
+            break;
+
+        case 5:
+            cout << "Genre: Electronic\n";
+            cout << "Recommended Mix: Electronic Energy\n";
+            break;
+
+        default:
+            cout << "Invalid choice. Please select 1-5.\n";
+    }
+
     cout << "------------------------------------\n";
-}}
+}
+
+else if (menuChoice == 3) {
+    cout << "\nReturning to main menu...\n";
+}
+
+else {
+    cout << "\nInvalid choice.\n";
+}
+
+} 
