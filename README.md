@@ -12,11 +12,8 @@ to YouTube Music or use an API.
 - `activity_recommendation.cpp` contains activity-based recommendations.
 - `genre_recommendation.cpp` contains genre recommendation logic.
 - `discovery_recommendation.cpp` contains music discovery / preference logic.
-- `mood_recommendation.cpp` is the mood module placeholder.
-
-`add mood recommendation features.cpp` is a separate mood-module draft with its
-own `main()` function. Do not include it in the group program build: the group
-program already has `main()` in `main.cpp`.
+- `mood_recommendation.cpp` contains the mood menu and its example songs and
+  playlists. It returns the selected suggestions so they can be saved.
 
 ## Compile and run
 

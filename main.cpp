@@ -119,10 +119,18 @@ int main() {
 
                 clearScreen();
 
-                moodRecommendation();
+                GenreResult result = moodRecommendation();
 
+                if (!result.genre.empty()) {
                     currentRecommendation =
-                    "Mood Recommendation";
+                        "Mood Recommendation\n   Mood: " + result.genre +
+                        "\n   Mix: " + result.mix +
+                        "\n   Suggestions:";
+
+                    for (const string& suggestion : result.songs) {
+                        currentRecommendation += "\n   - " + suggestion;
+                    }
+                }
 
                 break;
             }
