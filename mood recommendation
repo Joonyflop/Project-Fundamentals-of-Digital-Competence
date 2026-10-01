@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
+#include <limits>
 #include "recommendations.h" 
 using namespace std;
  
-void moodRecommendation() {
+GenreResult moodRecommendation() {
 
     int choice;
     cout << "\n--- Mood Recommendation ---\n";
@@ -48,12 +49,22 @@ void moodRecommendation() {
     }
 }
 
+GenreResult moodRecommendation() {
+    string moods[5] = {"Happy", "Sad", "Chill", "Energetic", "Stressed"};
+    string goals[4] = {"Match my mood", "Improve my mood", "Calm me down", "Boost my energy"};
 
-moodRecommendation(){
-result.genre = categoryNames[category];
-result.mix = intensityNames[intensity - 1];
-result.songs.clear();
-result.songs.push_back(songs[category][intensity - 1]);
-result.songs.push_back("Playlist: " + playlists[category]);
-return result;
-} 
+    cout << "\n--- Mood Recommendation ---\n";
+    int mood = askQuestion("1. Current mood", moods, 5);
+    int goal = askQuestion("2. What do you want the music to do?", goals, 4);
+    int intensity = askQuestion("3. Preferred intensity", intensityNames, 3);
+
+    int category = pickCategory(mood, goal);
+
+    GenreResult result;
+    result.genre = categoryNames[category];
+    result.mix = intensityNames[intensity - 1];
+    result.songs.clear();
+    result.songs.push_back(songs[category][intensity - 1]);
+    result.songs.push_back("Playlist: " + playlists[category]);
+    return result;
+}
