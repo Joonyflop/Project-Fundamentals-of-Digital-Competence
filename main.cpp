@@ -183,22 +183,23 @@ int main() {
 
             case 4: {
 
+                // DISCOVERY
+
                 clearScreen();
 
-                // Call discovery recommendation and capture the returned struct
                 GenreResult result = discoveryRecommendation();
 
-                // Only update currentRecommendation if a valid recommendation was generated
                 if (!result.genre.empty()) {
                     currentRecommendation =
                         "Discovery Recommendation"
                         "\n   Genre: " + result.genre +
                         "\n   Playlist: " + result.mix +
-                        "\n   Song: " + (result.songs.empty() ? "N/A" : result.songs[0]);
+                        "\n   " + (result.songs.empty() ? "Song: N/A" : result.songs[0]); // <--- Changed here
                 }
 
                 break;
             }
+            
 
             // SAVED RECOMMENDATIONS
             case 5: {
