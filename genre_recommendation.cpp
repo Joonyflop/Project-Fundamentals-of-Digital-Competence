@@ -150,7 +150,6 @@ GenreResult getGenreResult(
 
 GenreResult genreRecommendation() {
 
-    int menuChoice;
     int genreChoice;
     int soundChoice;
     int energyChoice;
@@ -168,16 +167,7 @@ GenreResult genreRecommendation() {
     cout << "2. Browse by Genre\n";
     cout << "3. Back to Main Menu\n";
 
-    cout << "\nEnter your choice: ";
-    cin >> menuChoice;
-
-
-    // Validate menu choice
-    while (menuChoice < 1 || menuChoice > 3) {
-
-        cout << "Invalid choice. Please enter 1-3: ";
-        cin >> menuChoice;
-    }
+    int menuChoice = getValidChoice("\nEnter your choice: ", 1, 3);
 
 
     // OPTION 1: FIND MY GENRE
@@ -199,15 +189,7 @@ GenreResult genreRecommendation() {
         cout << "4. Guitar and drums\n";
         cout << "5. Electronic and synthesized\n";
 
-        cout << "\nEnter your choice (1-5): ";
-        cin >> soundChoice;
-
-
-        while (soundChoice < 1 || soundChoice > 5) {
-
-            cout << "Invalid choice. Please enter 1-5: ";
-            cin >> soundChoice;
-        }
+        soundChoice = getValidChoice("\nEnter your choice (1-5): ", 1, 5);
 
 
         // QUESTION 2
@@ -217,15 +199,7 @@ GenreResult genreRecommendation() {
         cout << "2. Moderate\n";
         cout << "3. High energy\n";
 
-        cout << "\nEnter your choice (1-3): ";
-        cin >> energyChoice;
-
-
-        while (energyChoice < 1 || energyChoice > 3) {
-
-            cout << "Invalid choice. Please enter 1-3: ";
-            cin >> energyChoice;
-        }
+        energyChoice = getValidChoice("\nEnter your choice (1-3): ", 1, 3);
 
 
         // QUESTION 3
@@ -235,15 +209,7 @@ GenreResult genreRecommendation() {
         cout << "2. Beats\n";
         cout << "3. Both\n";
 
-        cout << "\nEnter your choice (1-3): ";
-        cin >> styleChoice;
-
-
-        while (styleChoice < 1 || styleChoice > 3) {
-
-            cout << "Invalid choice. Please enter 1-3: ";
-            cin >> styleChoice;
-        }
+        styleChoice = getValidChoice("\nEnter your choice (1-3): ", 1, 3);
 
 
         // Generate recommendation
@@ -294,15 +260,7 @@ GenreResult genreRecommendation() {
         cout << "4. Rock\n";
         cout << "5. Electronic\n";
 
-        cout << "\nEnter your choice (1-5): ";
-        cin >> genreChoice;
-
-
-        while (genreChoice < 1 || genreChoice > 5) {
-
-            cout << "Invalid choice. Please enter 1-5: ";
-            cin >> genreChoice;
-        }
+        genreChoice = getValidChoice("\nEnter your choice (1-5): ", 1, 5);
 
 
         GenreResult result;

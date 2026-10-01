@@ -12,8 +12,11 @@ vector<string> savedRecommendations;
 
 
 void clearScreen() {
-
+#ifdef _WIN32
     system("cls");
+#else
+    system("clear");
+#endif
 }
 
 // input from user
@@ -125,7 +128,11 @@ int main() {
                         "Mood Recommendation"
                         "\n   Mood/Vibe: " + result.genre +
                         "\n   Playlist: " + result.mix +
-                        "\n   Song: " + result.songs[0];
+                        "\n   Suggestions:";
+
+                    for (const string& suggestion : result.songs) {
+                        currentRecommendation += "\n   - " + suggestion;
+                    }
                 }
 
                 break;
@@ -193,8 +200,12 @@ int main() {
                     currentRecommendation =
                         "Discovery Recommendation"
                         "\n   Genre: " + result.genre +
-                        "\n   Playlist: " + result.mix +
-                        "\n   " + (result.songs.empty() ? "Song: N/A" : result.songs[0]); // <--- Changed here
+                        "\n   Vibe: " + result.mix +
+                        "\n   Suggestions:";
+
+                    for (const string& suggestion : result.songs) {
+                        currentRecommendation += "\n   - " + suggestion;
+                    }
                 }
 
                 break;
