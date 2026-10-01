@@ -6,7 +6,7 @@ using namespace std;
 
 
 // Helper function to display discovery suggestions
-static GenreResult showDiscovery(
+static GenreResult showDiscovery( //using the shared main .cpp file to display the discovery suggestions
     const string& category,
     const string& vibe,
     const string tracks[],
@@ -38,8 +38,8 @@ static GenreResult showDiscovery(
 }
 
 
-// Member 4 - Music Discovery / Preference Module
-GenreResult discoveryRecommendation() {
+// Member 4 - Music Discovery / Preference Module   //all the song lists are below and stored first in the file
+GenreResult discoveryRecommendation() {             // cuz it looks more organised this way
 
     // ----------------------------------------------------
     // Datasets: Familiar Classics
@@ -195,8 +195,8 @@ GenreResult discoveryRecommendation() {
         cout << "5. Classic Indie Anthems\n";
         cout << "6. Timeless Jazz & Blues\n";
 
-        int subChoice = getValidChoice(
-            "Enter category (1-6): ",
+        int subChoice = getValidChoice(  //get the user input for the subchoice
+            "Enter category (1-6): ",       //the songs we edi put on top so they just display the list when called
             1,
             6
         );
@@ -270,7 +270,7 @@ GenreResult discoveryRecommendation() {
     // OPTION 2: DISCOVER NEW MUSIC
     // ----------------------------------------------------
 
-    else if (mainChoice == 2) {
+    else if (mainChoice == 2) {  //same w here too. 
 
         cout << "\n--- DISCOVER NEW MUSIC ---\n";
 
@@ -356,7 +356,7 @@ GenreResult discoveryRecommendation() {
     // OPTION 3: BACK TO MAIN MENU
     // ----------------------------------------------------
 
-    else if (mainChoice == 3) {
+    else if (mainChoice == 3) { //exit menu option
 
         cout << "\nReturning to main menu...\n";
 
