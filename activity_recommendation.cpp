@@ -9,9 +9,9 @@ using namespace std;
 
 string chooseTimeOfDay() {
 
-    cout << "\n====================================\n";
+    cout << "\n+====================================+\n";
     cout << "           TIME OF DAY\n";
-    cout << "====================================\n";
+    cout << "+====================================+\n";
 
     cout << "\nWhen will you listen?\n\n";
 
@@ -72,9 +72,9 @@ system("cls");
     string result;
     string tip = getTimeTip(timeOfDay);
 
-    cout << "\n====================================\n";
+    cout << "\n+====================================+\n";
     cout << "       ACTIVITY RECOMMENDATION\n";
-    cout << "====================================\n";
+    cout << "+====================================+\n";
 
     cout << "\nSuggestions for " << title << ":\n";
     cout << "Time of day: " << timeOfDay << "\n";
@@ -98,7 +98,7 @@ system("cls");
             "\n   - " + suggestions[i];
     }
 
-    cout << "\n====================================\n";
+    cout << "\n+====================================+\n";
 
     return result;
 }
@@ -177,9 +177,9 @@ string activityRecommendation() {
     };
 
 
-    cout << "\n====================================\n";
-    cout << "       ACTIVITY RECOMMENDATION\n";
-    cout << "====================================\n";
+    cout << "\n+====================================+\n";
+    cout << "|       ACTIVITY RECOMMENDATION      |\n";
+    cout << "+====================================+\n";
 
     cout << "\nChoose an activity:\n\n";
 

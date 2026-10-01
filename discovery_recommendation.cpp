@@ -49,16 +49,16 @@ GenreResult discoveryRecommendation() {
         "Song: 'First Love' by Hikaru Utada",
         "Song: 'Lemon' by Kenshi Yonezu",
         "Song: 'Pretender' by Official HIGE DANdism",
-        "Song: 'Heavy Rotation' by AKB48",
+        "Song: 'Lost Umbrella' by Inabakumori",
         "Song: 'Silhouette' by KANA-BOON",
         "Playlist: Legendary J-Pop Hits"
     };
 
     const string familiarKpop[] = {
-        "Song: 'Dynamite' by BTS",
-        "Song: 'DDU-DU DDU-DU' by BLACKPINK",
-        "Song: 'Gangnam Style' by PSY",
-        "Song: 'Fancy' by TWICE",
+        "Song: 'Merry Go Round' by BTS",
+        "Song: 'Whistle' by BLACKPINK",
+        "Song: 'That That' by PSY",
+        "Song: 'Strategy' by TWICE",
         "Song: 'Love Scenario' by iKON",
         "Playlist: Iconic K-Pop Essentials"
     };
@@ -114,11 +114,11 @@ GenreResult discoveryRecommendation() {
     };
 
     const string newKpop[] = {
-        "Song: 'APT.' by ROSÉ & Bruno Mars",
-        "Song: 'Supernova' by aespa",
-        "Song: 'Magnetic' by ILLIT",
+        "Song: 'Bloody Paradise' by ENHYPEN",
+        "Song: 'Lemonade' by aespa",
+        "Song: 'It's Me' by ILLIT",
         "Song: 'SPOT!' by ZICO ft. JENNIE",
-        "Song: 'How Sweet' by NewJeans",
+        "Song: 'Bad' by ATEEZ",
         "Playlist: Fresh K-Pop Chart Toppers"
     };
 
@@ -162,15 +162,15 @@ GenreResult discoveryRecommendation() {
     int mainChoice;
 
 
-    cout << "\n====================================\n";
-    cout << "          YOUTUBE MUSIC             \n";
+    cout << "\n+====================================+\n";
+    cout << "          MADE FOR YOU               \n";
     cout << "       MUSIC DISCOVERY MENU         \n";
-    cout << "====================================\n";
+    cout << "+====================================+\n";
 
     cout << "What are you in the mood for?\n";
 
     cout << "1. Listen to Familiar Music\n";
-    cout << "2. Discover New Music\n";
+    cout << "2. Discover New Music For You\n";
     cout << "3. Back to Main Menu\n";
 
     mainChoice = getValidChoice(

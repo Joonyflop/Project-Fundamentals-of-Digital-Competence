@@ -84,9 +84,9 @@ int main() {
         clearScreen();
 
         // MAIN MENU
-        cout << "====================================\n";
+        cout << "+====================================+\n";
         cout << "      MUSIC RECOMMENDATION SYSTEM\n";
-        cout << "====================================\n";
+        cout << "+====================================+\n";
 
         cout << "\nChoose an option:\n\n";
 
@@ -194,9 +194,9 @@ int main() {
 
                 clearScreen();
 
-                cout << "====================================\n";
-                cout << "       SAVED RECOMMENDATIONS\n";
-                cout << "====================================\n";
+                cout << "+====================================+\n";
+                cout << "|       SAVED RECOMMENDATIONS        |\n";
+                cout << "+====================================+\n";
 
 
                 if (savedRecommendations.empty()) {
@@ -221,7 +221,7 @@ int main() {
                 }
 
 
-                cout << "\n====================================\n";
+                cout << "\n+====================================+\n";
 
                 pressEnterToContinue();
 
@@ -237,14 +237,14 @@ int main() {
 
                 clearScreen();
 
-                cout << "====================================\n";
-                cout << "      MUSIC RECOMMENDATION SYSTEM\n";
-                cout << "====================================\n";
+                cout << "+====================================+\n";
+                cout << "|      MUSIC RECOMMENDATION SYSTEM   |\n";
+                cout << "+====================================+\n";
 
                 cout << "\nThank you for using the "
                      << "Music Recommendation System!\n";
 
-                cout << "\n====================================\n";
+                cout << "\n+====================================+\n";
 
                 break;
             }
