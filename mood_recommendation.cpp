@@ -4,41 +4,85 @@
 
 using namespace std;
 
-// Recommends example songs and a playlist that match the selected mood.
-GenreResult moodRecommendation() {
-    const string moods[4] = {"Happy", "Sad", "Chill", "Energetic"};
-    const string playlists[4] = {
-        "Happy Hits", "Sad Songs", "Chill Hits", "Power Workout"
-    };
-    const string songs[4][3] = {
-        {"Happy - Pharrell Williams", "Uptown Funk - Mark Ronson ft. Bruno Mars", "Good as Hell - Lizzo"},
-        {"Someone Like You - Adele", "Fix You - Coldplay", "When I Was Your Man - Bruno Mars"},
-        {"Location - Khalid", "Ocean Eyes - Billie Eilish", "Better Together - Jack Johnson"},
-        {"Titanium - David Guetta ft. Sia", "Levitating - Dua Lipa", "Blinding Lights - The Weeknd"}
-    };
+// Music categories
+static const int HAPPY = 0;
+static const int SAD = 1;
+static const int CHILL = 2;
+static const int ENERGETIC = 3;
 
-    cout << "\n===== Mood Recommendation =====\n";
-    cout << "1. Happy\n";
-    cout << "2. Sad\n";
-    cout << "3. Chill\n";
-    cout << "4. Energetic\n";
+static const string categoryNames[4] = {"Happy", "Sad", "Chill", "Energetic"};
+static const string intensityNames[3] = {"Soft", "Moderate", "Powerful"};
 
-    int choice = getValidChoice("Choose your mood: ", 1, 4);
-    int moodIndex = choice - 1;
+// songs[category][intensity]
+static const string songs[4][3] = {
+    {"Here Comes the Sun - The Beatles", "Happy - Pharrell Williams", "Uptown Funk - Mark Ronson"},   // Happy
+    {"Skinny Love - Bon Iver", "Someone Like You - Adele", "Rolling in the Deep - Adele"},            // Sad
+    {"Ocean Eyes - Billie Eilish", "Location - Khalid", "Redbone - Childish Gambino"},                // Chill
+    {"Sunflower - Post Malone", "Levitating - Dua Lipa", "Titanium - David Guetta ft. Sia"}           // Energetic
+};
 
-    GenreResult result;
-    result.genre = moods[moodIndex];
-    result.mix = "Songs matching your mood";
+static const string playlists[4] = {"Happy Hits", "Sad Songs", "Chill Hits", "Power Workout"};
 
-    cout << "\nRecommendations for " << result.genre << ":\n";
-    for (int i = 0; i < 3; ++i) {
-        result.songs.push_back(songs[moodIndex][i]);
-        cout << i + 1 << ". " << songs[moodIndex][i] << "\n";
+static int askQuestion(const string& question, const string options[], int count) {
+    cout << "\n" << question << "\n";
+    for (int i = 0; i < count; i++) {
+        cout << i + 1 << ". " << options[i] << "\n";
+    }
+    return getValidChoice("Enter choice: ", 1, count);
+}
+
+static int pickCategory(int mood, int goal) {
+    if (goal == 3) return CHILL;
+    if (goal == 4) return ENERGETIC;
+
+    if (goal == 1) {
+        if (mood == 1) return HAPPY;
+        if (mood == 2) return SAD;
+        if (mood == 3) return CHILL;
+        if (mood == 4) return ENERGETIC;
+        return CHILL;
     }
 
-    string playlist = "Playlist: " + playlists[moodIndex];
-    result.songs.push_back(playlist);
-    cout << playlist << "\n";
+    if (mood == 2 || mood == 5) return CHILL;
+    return HAPPY;
+}
 
-    return result;
+// Member 1 - Mood Recommendation Module
+GenreResult moodRecommendation() {
+    string moods[5] = {"Happy", "Sad", "Chill", "Energetic", "Stressed"};
+    string goals[4] = {"Match my mood", "Improve my mood", "Calm me down", "Boost my energy"};
+
+    cout << "\n====================================\n";
+    cout << "          YOUTUBE MUSIC             \n";
+    cout << "       MOOD RECOMMENDATION          \n";
+    cout << "====================================\n";
+    cout << "1. Find Music by Mood & Goal\n";
+    cout << "2. Back to Main Menu\n";
+
+    int choice = getValidChoice("Enter choice (1-2): ", 1, 2);
+
+    if (choice == 1) {
+        int mood = askQuestion("1. Current mood", moods, 5);
+        int goal = askQuestion("2. What do you want the music to do?", goals, 4);
+        int intensity = askQuestion("3. Preferred intensity", intensityNames, 3);
+
+        int category = pickCategory(mood, goal);
+
+        GenreResult result;
+        result.genre = categoryNames[category] + " (" + intensityNames[intensity - 1] + ")";
+        result.mix = playlists[category];
+        result.songs.push_back(songs[category][intensity - 1]);
+
+        cout << "\n------------------------------------\n";
+        cout << "  RECOMMENDATION: " << result.genre << "\n";
+        cout << "------------------------------------\n";
+        cout << "  Song: " << result.songs[0] << "\n";
+        cout << "  Playlist: " << result.mix << "\n";
+        cout << "------------------------------------\n";
+
+        return result;
+    }
+
+    cout << "\nReturning to main menu...\n";
+    return {"", "", {}};
 }
