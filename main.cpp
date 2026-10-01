@@ -121,7 +121,7 @@ int main() {
 
                 moodRecommendation();
 
-                currentRecommendation =
+                    currentRecommendation =
                     "Mood Recommendation";
 
                 break;
