@@ -162,10 +162,10 @@ GenreResult discoveryRecommendation() {
     int mainChoice;
 
 
-    cout << "\n====================================\n";
+    cout << "\n+====================================+\n";
     cout << "          MADE FOR YOU               \n";
     cout << "       MUSIC DISCOVERY MENU         \n";
-    cout << "====================================\n";
+    cout << "+====================================+\n";
 
     cout << "What are you in the mood for?\n";
 
