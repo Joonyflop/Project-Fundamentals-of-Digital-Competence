@@ -116,13 +116,17 @@ int main() {
             // MOOD
 
             case 1: {
-
                 clearScreen();
 
-                moodRecommendation();
+                GenreResult result = moodRecommendation();
 
-                currentRecommendation =
-                    "Mood Recommendation";
+                if (!result.genre.empty()) {
+                    currentRecommendation =
+                        "Mood Recommendation"
+                        "\n   Mood/Vibe: " + result.genre +
+                        "\n   Playlist: " + result.mix +
+                        "\n   Song: " + result.songs[0];
+                }
 
                 break;
             }
