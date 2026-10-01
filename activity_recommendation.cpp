@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cstdlib>
 #include "recommendations.h"
 
 using namespace std;
@@ -68,7 +67,6 @@ string showSuggestions(
     const string suggestions[],
     int count
 ) {
-system("cls");
     string result;
     string tip = getTimeTip(timeOfDay);
 
