@@ -12,8 +12,11 @@ to YouTube Music or use an API.
 - `activity_recommendation.cpp` contains activity-based recommendations.
 - `genre_recommendation.cpp` contains genre recommendation logic.
 - `discovery_recommendation.cpp` contains music discovery / preference logic.
-- `mood_recommendation.cpp` contains the mood menu and its example songs and
-  playlists. It returns the selected suggestions so they can be saved.
+- `mood_recommendation.cpp` contains the mood recommendation menu and examples.
+
+Recommendations selected through the save prompt are kept for the current run
+and can be viewed from the Saved Recommendations menu. They are not stored
+between program runs.
 
 ## Compile and run
 

@@ -62,8 +62,8 @@ GenreResult moodRecommendation() {
     int choice = getValidChoice("Enter choice (1-2): ", 1, 2);
 
     if (choice == 1) {
-        int mood = askQuestion("1. Current mood", moods, 5);
-        int goal = askQuestion("2. What do you want the music to do?", goals, 4);
+        int mood = askQuestion("What is your current mood", moods, 5);
+        int goal = askQuestion("What do you want the music to do?", goals, 4);
         int intensity = askQuestion("3. Preferred intensity", intensityNames, 3);
 
         int category = pickCategory(mood, goal);

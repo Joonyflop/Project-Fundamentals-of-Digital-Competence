@@ -12,8 +12,11 @@ vector<string> savedRecommendations;
 
 
 void clearScreen() {
-
+#ifdef _WIN32
     system("cls");
+#else
+    system("clear");
+#endif
 }
 
 // input from user
@@ -125,7 +128,11 @@ int main() {
                         "Mood Recommendation"
                         "\n   Mood/Vibe: " + result.genre +
                         "\n   Playlist: " + result.mix +
-                        "\n   Song: " + result.songs[0];
+                        "\n   Suggestions:";
+
+                    for (const string& suggestion : result.songs) {
+                        currentRecommendation += "\n   - " + suggestion;
+                    }
                 }
 
                 break;
@@ -183,22 +190,27 @@ int main() {
 
             case 4: {
 
+                // DISCOVERY
+
                 clearScreen();
 
-                // Call discovery recommendation and capture the returned struct
                 GenreResult result = discoveryRecommendation();
 
-                // Only update currentRecommendation if a valid recommendation was generated
                 if (!result.genre.empty()) {
                     currentRecommendation =
                         "Discovery Recommendation"
                         "\n   Genre: " + result.genre +
-                        "\n   Playlist: " + result.mix +
-                        "\n   Song: " + (result.songs.empty() ? "N/A" : result.songs[0]);
+                        "\n   Vibe: " + result.mix +
+                        "\n   Suggestions:";
+
+                    for (const string& suggestion : result.songs) {
+                        currentRecommendation += "\n   - " + suggestion;
+                    }
                 }
 
                 break;
             }
+            
 
             // SAVED RECOMMENDATIONS
             case 5: {
