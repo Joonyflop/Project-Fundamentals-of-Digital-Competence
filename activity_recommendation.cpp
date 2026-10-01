@@ -5,28 +5,88 @@
 
 using namespace std;
 
+// CHOOSE TIME OF DAY
+
+string chooseTimeOfDay() {
+
+    cout << "\n====================================\n";
+    cout << "           TIME OF DAY\n";
+    cout << "====================================\n";
+
+    cout << "\nWhen will you listen?\n\n";
+
+    cout << "1. Morning\n";
+    cout << "2. Afternoon\n";
+    cout << "3. Evening\n";
+    cout << "4. Night\n";
+
+    int timeChoice = getValidChoice(
+        "\nEnter your choice: ",
+        1,
+        4
+    );
+
+    switch (timeChoice) {
+        case 1:
+            return "Morning";
+        case 2:
+            return "Afternoon";
+        case 3:
+            return "Evening";
+        case 4:
+            return "Night";
+    }
+
+    return "Morning";
+}
+
+
+// TIP FOR EACH TIME OF DAY
+
+string getTimeTip(const string& timeOfDay) {
+
+    if (timeOfDay == "Morning") {
+        return "A fresh start to your day!";
+    }
+    else if (timeOfDay == "Afternoon") {
+        return "Perfect to keep your energy going.";
+    }
+    else if (timeOfDay == "Evening") {
+        return "A nice way to wrap up the day.";
+    }
+
+    return "Best with the volume turned down low.";
+}
+
+
 // SHOW ACTIVITY SUGGESTIONS
 
 string showSuggestions(
     const string& title,
     const string& vibe,
+    const string& timeOfDay,
     const string suggestions[],
     int count
 ) {
 system("cls");
     string result;
+    string tip = getTimeTip(timeOfDay);
 
     cout << "\n====================================\n";
     cout << "       ACTIVITY RECOMMENDATION\n";
     cout << "====================================\n";
 
     cout << "\nSuggestions for " << title << ":\n";
+    cout << "Time of day: " << timeOfDay << "\n";
     cout << "Vibe: " << vibe << "\n";
+    cout << "Tip: " << tip << "\n";
 
     result =
         "Activity Recommendation"
         "\n   Activity: " + title +
+        "\n   Time of day: " + timeOfDay +
         "\n   Vibe: " + vibe +
+        "\n   Tip: " + tip +
         "\n   Suggestions:";
 
 
@@ -138,6 +198,19 @@ string activityRecommendation() {
     );
 
 
+    // Back to main menu: no need to ask for the time of day
+    if (activity == 6) {
+
+        cout << "\nReturning to main menu...\n";
+
+        return "";
+    }
+
+
+    // Ask for the time of day after an activity is chosen
+    string timeOfDay = chooseTimeOfDay();
+
+
     switch (activity) {
 
         case 1:
@@ -145,6 +218,7 @@ string activityRecommendation() {
             return showSuggestions(
                 "Studying",
                 "Calm and focused (Baroque)",
+                timeOfDay,
                 studying,
                 4
             );
@@ -155,6 +229,7 @@ string activityRecommendation() {
             return showSuggestions(
                 "Workout",
                 "Emotional but energetic (Red era)",
+                timeOfDay,
                 workout,
                 5
             );
@@ -165,6 +240,7 @@ string activityRecommendation() {
             return showSuggestions(
                 "Driving",
                 "Happy songs you never want to end",
+                timeOfDay,
                 driving,
                 5
             );
@@ -175,6 +251,7 @@ string activityRecommendation() {
             return showSuggestions(
                 "Relaxing",
                 "Soft, dreamy, and slow",
+                timeOfDay,
                 relaxing,
                 4
             );
@@ -185,16 +262,10 @@ string activityRecommendation() {
             return showSuggestions(
                 "Crashout",
                 "Loud, dramatic, and fully unhinged",
+                timeOfDay,
                 crashout,
                 4
             );
-
-
-        case 6:
-
-            cout << "\nReturning to main menu...\n";
-
-            return "";
     }
 
 
