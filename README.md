@@ -1,37 +1,43 @@
 # YouTube Music Recommendation System
 
 A beginner-friendly C++ console program for a university group project. It
-provides a shared menu and an example Activity Recommendation module. The mood,
-genre, and music discovery / preference modules are placeholders for the other
-group members to complete.
+provides a shared menu and static example recommendations. It does not connect
+to YouTube Music or use an API.
 
 ## Project files
 
-- `main.cpp` contains the main menu and shared input validation function.
-- `recommendations.h` declares the functions shared by the program and modules.
-- `activity_recommendation.cpp` contains the Activity Recommendation module.
-- `mood_recommendation.cpp`, `genre_recommendation.cpp`, and
-  `discovery_recommendation.cpp` contain placeholders for the other members.
+- `main.cpp` contains the main menu and shared input validation.
+- `recommendations.h` declares the recommendation functions and shared result
+  structure.
+- `activity_recommendation.cpp` contains activity-based recommendations.
+- `genre_recommendation.cpp` contains genre recommendation logic.
+- `discovery_recommendation.cpp` contains music discovery / preference logic.
+- `mood_recommendation.cpp` is the mood module placeholder.
 
-All recommendations are static examples. The program does not connect to
-YouTube Music or use an API.
+`add mood recommendation features.cpp` is a separate mood-module draft with its
+own `main()` function. Do not include it in the group program build: the group
+program already has `main()` in `main.cpp`.
 
 ## Compile and run
 
-From this folder, compile all the `.cpp` files together with a C++ compiler:
+Open a terminal in this folder and compile the five program source files
+together. For g++ (including MinGW on Windows):
 
 ```sh
 g++ -std=c++11 main.cpp activity_recommendation.cpp mood_recommendation.cpp genre_recommendation.cpp discovery_recommendation.cpp -o recommendation_system
 ```
 
-Then run the program:
+On Windows, run:
+
+```powershell
+.\recommendation_system.exe
+```
+
+On macOS or Linux, run:
 
 ```sh
 ./recommendation_system
 ```
 
-On Windows, run `recommendation_system.exe` after compiling.
-
-Try each main menu option, all four activity choices, the back/exit choices,
-and invalid inputs such as a letter or a number outside the displayed range.
-
+Try each main menu option, the activity choices, the back/exit choices, and
+invalid inputs such as a letter or a number outside the displayed range.
