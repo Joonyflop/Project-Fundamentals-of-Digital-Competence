@@ -116,13 +116,17 @@ int main() {
             // MOOD
 
             case 1: {
-
                 clearScreen();
 
-                moodRecommendation();
+                GenreResult result = moodRecommendation();
 
+                if (!result.genre.empty()) {
                     currentRecommendation =
-                    "Mood Recommendation";
+                        "Mood Recommendation"
+                        "\n   Mood/Vibe: " + result.genre +
+                        "\n   Playlist: " + result.mix +
+                        "\n   Song: " + result.songs[0];
+                }
 
                 break;
             }
@@ -181,10 +185,17 @@ int main() {
 
                 clearScreen();
 
-                discoveryRecommendation();
+                // Call discovery recommendation and capture the returned struct
+                GenreResult result = discoveryRecommendation();
 
-                currentRecommendation =
-                    "Discovery Recommendation";
+                // Only update currentRecommendation if a valid recommendation was generated
+                if (!result.genre.empty()) {
+                    currentRecommendation =
+                        "Discovery Recommendation"
+                        "\n   Genre: " + result.genre +
+                        "\n   Playlist: " + result.mix +
+                        "\n   Song: " + (result.songs.empty() ? "N/A" : result.songs[0]);
+                }
 
                 break;
             }
@@ -286,7 +297,8 @@ int main() {
             pressEnterToContinue();
         }
 
-    } while (choice != 6);
+    } 
+    while (choice != 6);
 
 
     return 0;
