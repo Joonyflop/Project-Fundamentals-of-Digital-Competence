@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
+#include "recommendations.h" 
 using namespace std;
  
 void moodRecommendation() {
+
     int choice;
- 
     cout << "\n--- Mood Recommendation ---\n";
     cout << "How are you feeling?\n";
     cout << "1. Happy\n";
@@ -46,9 +47,13 @@ void moodRecommendation() {
         cout << "Invalid choice. Please enter 1 to 4.\n";
     }
 }
- 
-int main() {
-    moodRecommendation();
-    return 0;
-}
- 
+
+
+moodRecommendation(){
+result.genre = categoryNames[category];
+result.mix = intensityNames[intensity - 1];
+result.songs.clear();
+result.songs.push_back(songs[category][intensity - 1]);
+result.songs.push_back("Playlist: " + playlists[category]);
+return result;
+} 
