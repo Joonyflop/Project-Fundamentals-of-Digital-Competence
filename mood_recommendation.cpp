@@ -43,6 +43,8 @@ static int pickCategory(int mood, int goal) {
         return CHILL;
     }
 
+    // Goal 2: Improve my mood
+    if (mood == 4) return ENERGETIC;   
     if (mood == 2 || mood == 5) return CHILL;
     return HAPPY;
 }
